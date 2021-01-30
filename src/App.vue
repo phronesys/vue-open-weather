@@ -1,8 +1,8 @@
 <template>
   <section class="main-content">
     <div class="main-content__text">
-      <h2 class="main-content__header">Santiago de Chile</h2>
-      <h4 class="main-content__temp">5°</h4>
+      <h2 class="main-content__header">{{ data.name }}</h2>
+      <h4 class="main-content__temp">{{ data.temp }}°</h4>
     </div>
     <div class="main-content__icon-box">
       <img src="@/assets/logo.png" alt="logo" class="main-content__icon" />
@@ -11,27 +11,32 @@
 </template>
 
 <script>
+import config from "./config";
 export default {
   data() {
     return {
-      xml: "",
+      data: {
+        name: "",
+        temp: null,
+      },
     };
   },
-  mounted() {
-    this.axios.get("http://api.meteored.cl/index.php?api_lang=cl&localidad=18578&affiliate_id=tb26q4vkytw7")
-    .then(response => {
-      console.log(response);
-    }).catch(error => {
-      console.log(error);
-    }) 
-    // const handler = () =>
-    //   fetch("/functions/node-fetch", {
-    //     headers: { accept: "Accept: application/json" },
-    //   })
-    //     .then((x) => x.json())
-    //     .then(({ msg }) => console.log(msg));
-    // console.log(handler);
+  created() {
+    // this will be the default 
+    this.axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=Santiago,cl&appid=${config.MY_API_KEY}&units=metric`
+      )
+      .then((response) => {
+        console.log(response);
+        this.data.name = response.data.name;
+        this.data.temp = response.data.main.temp;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
+  mounted() {},
 };
 </script>
 
