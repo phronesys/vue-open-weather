@@ -2,7 +2,7 @@
 
 <template>
   <div class="main">
-    <the-search class="main__search"></the-search>
+    <the-search class="main__search" @to-app="sendToApp"></the-search>
     <the-icon class="main__icon"></the-icon>
     <the-data
       class="main__data"
@@ -28,7 +28,22 @@ export default {
     TheIcon,
     TheData,
   },
-  props: ["city", "temperature", "humidity", "weather", "description", "country", "min", "max"],
+  props: [
+    "city",
+    "temperature",
+    "humidity",
+    "weather",
+    "description",
+    "country",
+    "min",
+    "max",
+  ],
+  emits: ["toApp"],
+  methods: {
+    sendToApp(search) {
+      this.$emit("toApp", search);
+    },
+  },
 };
 </script>
 

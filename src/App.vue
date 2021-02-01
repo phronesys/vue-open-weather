@@ -8,12 +8,13 @@
     :weather="data.weather"
     :description="data.description"
     :country="data.country"
+    @to-app="getNewData"
   ></base-card>
 </template>
 
 <script>
-import config from "./config";
-import BaseCard from "./components/layout/BaseCard";
+import config from "./config.js";
+import BaseCard from "./components/layout/BaseCard.vue";
 export default {
   components: {
     BaseCard,
@@ -35,10 +36,17 @@ export default {
     };
   },
   methods: {
-    getData() {
+    getNewData(search) {
+      console.log(search);
+      this.getData(search);
+    },
+    getData(search) {
+      if(search == null) {
+        search = "santiago,cl"
+      }
       this.axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?q=santiago,cl&appid=${this.key}&units=metric&lang=es`
+          `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${this.key}&units=metric&lang=es`
         )
         .then((response) => {
           console.log(response);
@@ -56,6 +64,9 @@ export default {
           console.log(error);
         });
     },
+  },
+  mounted(){
+    
   },
   created() {
     this.getData();
