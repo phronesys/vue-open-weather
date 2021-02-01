@@ -40,7 +40,7 @@ export default {
     padding: 0;
     outline: 0;
     border-width: 0;
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid #333;
     background-color: rgba(#fff, 0.7);
     color: $color-black;
     text-align: center;

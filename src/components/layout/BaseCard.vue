@@ -3,7 +3,7 @@
 <template>
   <div class="main">
     <the-search class="main__search" @to-app="sendToApp"></the-search>
-    <the-icon class="main__icon"></the-icon>
+    <the-icon class="main__icon" :clima="clima"></the-icon>
     <the-data
       class="main__data"
       :city="city"
@@ -37,6 +37,7 @@ export default {
     "country",
     "min",
     "max",
+    "clima"
   ],
   emits: ["toApp"],
   methods: {
@@ -53,6 +54,8 @@ export default {
   width: 22rem;
   height: 80vh;
   background-color: white;
+  background-image: url('../../images/cloud.jpg');
+  background-size: cover;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 1rem 2rem 3rem rgba($color-black, 0.6);

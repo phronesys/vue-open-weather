@@ -8,6 +8,7 @@
     :weather="data.weather"
     :description="data.description"
     :country="data.country"
+    :clima="data.icon"
     @to-app="getNewData"
   ></base-card>
 </template>
@@ -87,10 +88,10 @@ html {
   min-height: 100%;
   background-image: linear-gradient(
       90deg,
-      rgba(rgba(15, 1, 77, 0.884), 0.8) 70%,
+      rgba($color-black, 0.8) 70%,
       transparent 25%
     ),
-    url("./images/snow-back.jpg");
+    url("./images/cloud-back.jpg");
   background-size: cover;
 }
 </style>
