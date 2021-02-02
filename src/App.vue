@@ -1,24 +1,29 @@
 <template>
-  <base-card
-    :city="data.city"
-    :temperature="data.temp"
-    :min="data.min"
-    :max="data.max"
-    :humidity="data.humidity"
-    :weather="data.weather"
-    :description="data.description"
-    :country="data.country"
-    :clima="data.icon"
-    @to-app="getNewData"
-  ></base-card>
+  <div class="background" :style="{backgroundImage: `url(${theUrl}), ${gradient}`}"></div>
+  <base-style>
+    <base-card
+      :city="data.city"
+      :temperature="data.temp"
+      :min="data.min"
+      :max="data.max"
+      :humidity="data.humidity"
+      :weather="data.weather"
+      :description="data.description"
+      :country="data.country"
+      :clima="data.icon"
+      @to-app="getNewData"
+    ></base-card>
+  </base-style>
 </template>
 
 <script>
 import config from "./config.js";
 import BaseCard from "./components/layout/BaseCard.vue";
+import BaseStyle from "./components/layout/BaseStyle.vue";
 export default {
   components: {
     BaseCard,
+    BaseStyle,
   },
   data() {
     return {
@@ -34,16 +39,25 @@ export default {
         max: "",
         min: "",
       },
+      theUrl: "rain-back.jpg",
+      gradient: "linear-gradient(90deg, rgba($color-black, 0.8) 70%, transparent 25%)"
     };
   },
   methods: {
+    updateUrl(){
+      const w = this.data.weather.toLowerCase();
+      console.log(w);
+      this.theUrl = `./images/${w}-back.jpg`
+      console.log(this.theUrl);
+    },
     getNewData(search) {
       console.log(search);
       this.getData(search);
+      this.updateUrl();
     },
     getData(search) {
-      if(search == null) {
-        search = "santiago,cl"
+      if (search == null) {
+        search = "santiago,cl";
       }
       this.axios
         .get(
@@ -66,32 +80,40 @@ export default {
         });
     },
   },
-  mounted(){
-    
+  mounted() {
+    // this.$root.$once('body-background-image', function(url){
+    //   document.body.style.backgroundImage = url;
+    // })
   },
   created() {
     this.getData();
   },
 };
 </script>
-
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-body {
-  box-sizing: border-box;
-}
-html {
+.background {
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  min-width: 100%;
   min-height: 100%;
   background-image: linear-gradient(
       90deg,
       rgba($color-black, 0.8) 70%,
       transparent 25%
     ),
-    url("./images/cloud-back.jpg");
+    url("./images/clouds-back.jpg");
   background-size: cover;
+  background-position: top;
+  position: fixed;
+  &--clouds {
+
+  }
+  &--rain {
+    
+  }
 }
 </style>
+
+

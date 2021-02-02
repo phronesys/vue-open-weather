@@ -32,7 +32,12 @@ export default {
 <style lang="scss" scoped>
 .data {
   text-align: center;
+  color: #222;
+  background-color: rgba($color-white, .8);
+  border-radius: 5px;
+  margin: 1rem;
   &__city {
+    margin-bottom: -1rem;
   }
   &__temp {
     font-size: 27px;
@@ -42,10 +47,11 @@ export default {
     width: 80%;
     // centering block element inside a block element
     position: relative;
-
+    left: -.5rem;
     li {
       text-align: center;
       padding: .5rem;
+      font-weight: bold;
       &:not(:last-child) {
         border-bottom: 1px solid #333;
       }

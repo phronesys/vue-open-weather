@@ -8,9 +8,7 @@
 <script>
 export default {
   data() {
-    return {
-
-    }
+    return {};
   },
   computed: {
     url() {
@@ -39,6 +37,7 @@ export default {
   width: 7rem;
   height: 7rem;
   box-shadow: 0 0 1rem rgba($color-black, $alpha: 1);
+
 }
 .icon {
   width: 6rem;
