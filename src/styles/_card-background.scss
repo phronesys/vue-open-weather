@@ -1,7 +1,9 @@
 @mixin main {
   @include absolute-center;
   width: 22rem;
-  height: 80vh;
+  height: 35rem;
+  margin: 1rem 0;
+  margin-top: 2rem;
   background-color: white;
   background-size: cover;
   border-radius: 10px;
