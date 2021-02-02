@@ -1,0 +1,93 @@
+@mixin main {
+  @include absolute-center;
+  width: 22rem;
+  height: 80vh;
+  background-color: white;
+  background-size: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1rem 2rem 3rem rgba($color-black, 0.6);
+
+  &__search {
+    margin: 0;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  &__icon {
+    background-color: rgba(#555, 0.8);
+  }
+}
+@mixin main--ash {
+  @include main;
+  background-image: $url-ash;
+}
+
+@mixin main--clear {
+  @include main;
+  background-image: $url-clear;
+}
+
+@mixin main--clouds {
+  @include main;
+  background-image: $url-clouds;
+}
+
+@mixin main--drizzle {
+  @include main;
+  background-image: $url-drizzle;
+}
+
+@mixin main--dust {
+  @include main;
+  background-image: $url-dust;
+}
+
+@mixin main--fog {
+  @include main;
+  background-image: $url-fog;
+}
+
+@mixin main--haze {
+  @include main;
+  background-image: $url-haze;
+}
+
+@mixin main--mist {
+  @include main;
+  background-image: $url-mist;
+}
+
+@mixin main--rain {
+  @include main;
+  background-image: $url-rain;
+}
+
+@mixin main--sand {
+  @include main;
+  background-image: $url-sand;
+}
+
+@mixin main--smoke {
+  @include main;
+  background-image: $url-smoke;
+}
+@mixin main--snow {
+  @include main;
+  background-image: $url-snow;
+}
+@mixin main--squall {
+  @include main;
+  background-image: $url-squall;
+}
+
+@mixin main--thunderstorm {
+  @include main;
+  background-image: $url-thunderstorm;
+}
+
+@mixin main--tornado {
+  @include main;
+  background-image: $url-tornado;
+}
+

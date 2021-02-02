@@ -1,0 +1,147 @@
+@mixin background {
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: top;
+  position: fixed;
+}
+@mixin background--ash {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-ash-back;
+}
+
+@mixin background--clear {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-clear-back;
+}
+@mixin background--clouds {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-clouds-back;
+}
+@mixin background--drizzle {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-drizzle-back;
+}
+@mixin background--dust {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-dust-back;
+}
+@mixin background--fog {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-fog-back;
+}
+@mixin background--haze {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-haze-back;
+}
+@mixin background--mist {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-mist-back;
+}
+@mixin background--rain {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-rain-back;
+}
+@mixin background--sand {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-sand-back;
+}
+@mixin background--smoke {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-smoke-back;
+}
+@mixin background--snow {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-snow-back;
+}
+@mixin background--squall {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-squall-back;
+}
+@mixin background--thunderstorm {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-thunderstorm-back;
+}
+@mixin background--tornado {
+  @include background;
+  background-image: linear-gradient(
+      90deg,
+      rgba($color-black, 0.8) 70%,
+      transparent 25%
+    ),
+    $url-tornado-back;
+}

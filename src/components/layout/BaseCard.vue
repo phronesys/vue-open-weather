@@ -1,7 +1,7 @@
 // card skeleton
 
 <template>
-  <div class="main">
+  <div :class="main">
     <the-search
       class="main__search"
       @to-app="sendToApp"
@@ -43,6 +43,11 @@ export default {
     "max",
     "clima",
   ],
+  computed: {
+    main(){
+      return `main--${this.weather.toLowerCase()}`;
+    }
+  },
   emits: ["toApp"],
   methods: {
     sendToApp(search) {
@@ -54,24 +59,50 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  @include absolute-center;
-  width: 22rem;
-  height: 80vh;
-  background-color: white;
-  background-image: url("../../images/sand.jpg");
-  background-size: cover;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 1rem 2rem 3rem rgba($color-black, 0.6);
-
-  &__search {
-    margin: 0;
-    position: relative;
-    left: 0;
-    top: 0;
+  &--ash {
+    @include main--ash;
   }
-  &__icon {
-    background-color: rgba(#555, 0.8);
+  &--clear {
+    @include main--clear;
+  }
+  &--clouds {
+    @include main--clouds;
+  }
+  &--drizzle {
+    @include main--drizzle;
+  }
+  &--dust {
+    @include main--dust;
+  }
+  &--fog {
+    @include main--fog;
+  }
+  &--haze {
+    @include main--haze;
+  }
+  &--mist {
+    @include main--mist;
+  }
+  &--rain {
+    @include main--rain;
+  }
+  &--sand {
+    @include main--sand;
+  }
+  &--smoke {
+    @include main--smoke;
+  }
+  &--snow {
+    @include main--snow;
+  }
+  &--squall {
+    @include main--squall;
+  }
+  &--thunderstorm {
+    @include main--thunderstorm;
+  }
+  &--tornado {
+    @include main--tornado;
   }
 }
 </style>

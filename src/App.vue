@@ -1,5 +1,5 @@
 <template>
-  <div class="background" :style="{backgroundImage: `url(${theUrl}), ${gradient}`}"></div>
+  <div :class="background"></div>
   <base-style>
     <base-card
       :city="data.city"
@@ -39,21 +39,17 @@ export default {
         max: "",
         min: "",
       },
-      theUrl: "rain-back.jpg",
-      gradient: "linear-gradient(90deg, rgba($color-black, 0.8) 70%, transparent 25%)"
     };
   },
+  computed: {
+    background() {
+      return `background--${this.data.weather.toLowerCase()}`
+    }
+  },
   methods: {
-    updateUrl(){
-      const w = this.data.weather.toLowerCase();
-      console.log(w);
-      this.theUrl = `./images/${w}-back.jpg`
-      console.log(this.theUrl);
-    },
     getNewData(search) {
       console.log(search);
       this.getData(search);
-      this.updateUrl();
     },
     getData(search) {
       if (search == null) {
@@ -92,26 +88,60 @@ export default {
 </script>
 <style lang="scss">
 .background {
-  margin: 0;
-  padding: 0;
-  left: 0;
-  top: 0;
-  min-width: 100%;
-  min-height: 100%;
-  background-image: linear-gradient(
-      90deg,
-      rgba($color-black, 0.8) 70%,
-      transparent 25%
-    ),
-    url("./images/clouds-back.jpg");
-  background-size: cover;
-  background-position: top;
-  position: fixed;
+  &--ash {
+    @include background--ash;
+  }
+  &--clear {
+    @include background--clear;
+  }
   &--clouds {
+    @include background--clouds;
+  }
 
+  &--drizzle {
+    @include background--drizzle;
+  }
+
+  &--dust {
+    @include background--dust;
+  }
+
+  &--fog {
+    @include background--fog;
+  }
+
+  &--haze {
+    @include background--haze;
+  }
+
+  &--mist {
+    @include background--mist;
   }
   &--rain {
-    
+    @include background--rain;
+  }
+
+  &--sand {
+    @include background--sand;
+  }
+
+  &--smoke {
+    @include background--smoke;
+  }
+
+  &--snow {
+    @include background--snow;
+  }
+  &--squall {
+    @include background--squall;
+  }
+
+  &--thunderstorm {
+    @include background--thunderstorm;
+  }
+
+  &--tornado {
+    @include background--tornado;
   }
 }
 </style>
